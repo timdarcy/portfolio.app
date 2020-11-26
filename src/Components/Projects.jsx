@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CurrencyConverter from './CurrencyConverter';
 class Projects extends React.Component{
     constructor(props){
         super(props);
@@ -34,7 +34,12 @@ class Projects extends React.Component{
     }
     displayActiveProject = () => {
         if (this.state.currencyCalculator){
-            return <h1>CurrencyCalculator On</h1>
+            return (
+                <>
+                    <h1>CurrencyCalculator On</h1>
+                    <CurrencyConverter/>
+                </>
+            )
         }
         else if(this.state.keyMapper){
             return <h1>KeyMapper On</h1>
