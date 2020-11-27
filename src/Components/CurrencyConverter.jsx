@@ -4,32 +4,47 @@ import Axios from 'axios';
 class CurrencyConverter extends Component {
     constructor(props) {
         super(props);
-        this.state = { currencies: ["AUD", "USD", "EUR", "GBP"], currencyFrom: "AUD", currencyTo: "AUD", amountFrom: 0, amountTo: 0 }
+        this.state = { 
+            currencies: ["AUD"],
+            currencyFrom: "AUD",
+            currencyTo: "AUD",
+            amountFrom: 0,
+            amountTo: 0
+        }
         this.handleSelect = this.handleSelect.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
 
         
     }
-    
+    componentDidMount(){
+        //get exchange rates on load and store
+        let apiAddress = "https://api.exchangeratesapi.io/latest";
+        let requestAddress = apiAddress;
+        Axios.get(requestAddress).then((response) => {
+            this.setState({
+                rates: response.data.rates,
+                baseCurrency: response.data.base,
+                currencies: Object.keys(response.data.rates).sort()
+            })
+        })
+    }
 
 
     handleSubmit(event) {
         event.preventDefault();
-        //fixer.io api key
-        const apiKey = "12980df91b59f4a5256ec5001c31178f";
 
-        let apiAddress = "http://data.fixer.io/api/latest";
-        let requestAddress = apiAddress + "?access_key=" + apiKey;
-        Axios.get(requestAddress).then((response) => {
-            //console.log(response.data.rates);
-            let fromRate = response.data.rates[this.state.currencyFrom];
-            let toRate = response.data.rates[this.state.currencyTo];
-            //returned values are conversion to euro due to api restrictions
-            let euro =  this.state.amountFrom / fromRate;
-            let conversion = euro * toRate;
+        let fromRate = this.state.rates[this.state.currencyFrom];
+        let baseValue =  this.state.amountFrom / fromRate;
+        if (this.state.currencyTo === this.state.baseCurrency){
+            this.setState({ amountTo: baseValue.toFixed(3) })
+        }
+        else{
+            let toRate = this.state.rates[this.state.currencyTo];
+            let conversion = baseValue * toRate;
             this.setState({ amountTo: conversion.toFixed(3) })
-        });
+        }
+        
     }
 
     handleSelect(event) {
