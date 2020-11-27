@@ -23,10 +23,7 @@ export default class KeyMapper extends React.Component{
     render(){
         return(
             <>
-                <div 
-                    type="text"
-                    tabIndex="0"
-                    >
+                <div>
                         <div className="panel is-info">
                             <h3 className="panel-heading">Press a Key</h3>
                             <table className="table">

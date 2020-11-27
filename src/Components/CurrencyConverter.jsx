@@ -16,7 +16,6 @@ class CurrencyConverter extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(event);
         //fixer.io api key
         const apiKey = "12980df91b59f4a5256ec5001c31178f";
 
@@ -52,7 +51,7 @@ class CurrencyConverter extends Component {
                     })}
                 </select><br />
 
-                <input type="number" name="amountFrom" onChange={this.handleInput}></input> <br />
+                <input type="number" name="amountFrom" step="any" onChange={this.handleInput}/> <br />
                 <label>Select target currency</label> <br />
                 <select name="currencyTo" value={this.state.currencyTo} onChange={this.handleSelect}>
                     {this.state.currencies.map((name, index) => {
