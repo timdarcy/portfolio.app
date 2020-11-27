@@ -1,5 +1,6 @@
 import React from 'react';
 import CurrencyConverter from './CurrencyConverter';
+import KeyMapper from './KeyMapper';
 class Projects extends React.Component{
     constructor(props){
         super(props);
@@ -42,7 +43,12 @@ class Projects extends React.Component{
             )
         }
         else if(this.state.keyMapper){
-            return <h1>KeyMapper On</h1>
+            return (
+                <>
+                    <h1>KeyMapper On</h1>
+                    <KeyMapper/>
+                </>
+            )
         }
         else if(this.state.workFlowBoard){
             return <h1>WorkFlowBoard On</h1>
