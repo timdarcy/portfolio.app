@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-class CurrencyConverter extends Component {
+export default class CurrencyConverter extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -81,5 +81,3 @@ class CurrencyConverter extends Component {
         );
     }
 }
-
-export default CurrencyConverter;

@@ -1,7 +1,11 @@
 import React from 'react';
 import CurrencyConverter from './CurrencyConverter';
 import KeyMapper from './KeyMapper';
-class Projects extends React.Component{
+import WorkflowBoard from './WorkflowBoard/WorkflowBoard';
+import { Provider } from 'react-redux'
+import store from './Redux/store'
+
+export default class Projects extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -51,7 +55,15 @@ class Projects extends React.Component{
             )
         }
         else if(this.state.workFlowBoard){
-            return <h1>WorkFlowBoard On</h1>
+            return (
+                <>
+                    <h1>WorkFlowBoard On</h1>
+                    <Provider store={store}>
+                        <WorkflowBoard/>
+                    </Provider>
+                    
+                </>
+                )
         }
         else{
             return <h1>Nothing selected</h1>
@@ -77,5 +89,3 @@ class Projects extends React.Component{
         )
     }
 }
-
-export default Projects;
