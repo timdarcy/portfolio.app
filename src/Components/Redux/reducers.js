@@ -1,4 +1,4 @@
-
+import { v4 as uuidv4 } from 'uuid';
 // Use the initialState as a default value
 export default function appReducer(state, action) {
 
@@ -27,6 +27,23 @@ export default function appReducer(state, action) {
             laneOrder: ['lane-1', 'lane-2', 'lane-3']
         }
     }
+
+    const createNewCard = (values) => {
+        return {
+            id: uuidv4(),
+            title: values.title,
+            content: values.content
+        }
+    }
+
+    const createNewLane = (values) => {
+        return {
+            id: uuidv4(),
+            title: values.title,
+            cardIds: []
+        }
+    }
+
     switch (action.type) {
         case 'UPDATE_CARD':
             var newState = {
@@ -49,7 +66,7 @@ export default function appReducer(state, action) {
             }
             newState.cards[newCard.id] = newCard;
             newState.lanes[action.laneId].cardIds.push(newCard.id)
-            saveToServer(newState);
+            //saveToServer(newState);
             return newState;
         case 'DELETE_CARD':
             var newState = { ...state }
@@ -71,5 +88,6 @@ export default function appReducer(state, action) {
             return newState
         default:
             return state;
+        }
 
 }

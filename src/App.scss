@@ -1,25 +1,23 @@
 @import 'bulma/css/bulma.css';
-.welcome-content {
+
+.welcome-content{
   text-align: center;
 }
 
-.cardList {
+.cardList{
   padding: 8px;
   transition: background-color 0.2s ease;
   flex-grow: 1;
-  min-height: 100px;
+  min-height:100px;
 }
 
-.workflow-lane {
+.workflow-lane{
   margin: 8px;
   border-radius: 2px;
   width: 220px;
   display: flex;
   flex-direction: column;
 }
-
-.workflow-lane header {
+.workflow-lane header{
   cursor: pointer;
 }
-
-/*# sourceMappingURL=App.css.map */

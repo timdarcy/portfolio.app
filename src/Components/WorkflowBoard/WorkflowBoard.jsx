@@ -2,7 +2,7 @@ import * as React from 'react';
 import WorkflowLane from './WorkflowLane';
 import LaneModal from './LaneModal';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { connect, dispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 class WorkflowBoard extends React.Component{
     constructor(props) {
@@ -112,7 +112,7 @@ class WorkflowBoard extends React.Component{
                         type="lane"
                     >
                         {(provided) => (
-                            <div
+                            <div className="columns"
                                 {...provided.droppableProps}
                                 ref={provided.innerRef}
                             >
@@ -145,7 +145,7 @@ const mapStateToProps = (state) => {
         ...state
     }
 }
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
     return {
         updateState: (newState) => dispatch({ type: 'UPDATE_STATE', newState } ),
         addNewLane: (values) => dispatch({ type: 'ADD_NEW_LANE', values })

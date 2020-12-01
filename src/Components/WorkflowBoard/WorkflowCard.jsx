@@ -1,8 +1,9 @@
 import React from 'react';
 import {Draggable, DraggableStateSnapshot, DraggableProvided} from 'react-beautiful-dnd';
 import CardModal from './CardModal';
+import { connect } from 'react-redux';
 
-export default class WorkflowCard extends React.Component{
+class WorkflowCard extends React.Component{
     constructor(props){
         super(props)
         this.state = {
@@ -65,3 +66,16 @@ export default class WorkflowCard extends React.Component{
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateCard: (updatedCard) => dispatch({ type: 'UPDATE_CARD', updatedCard }),
+        deleteCard: (cardId, laneId) => dispatch({ type: 'DELETE_CARD', cardId, laneId})
+    }
+    
+}
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(WorkflowCard);

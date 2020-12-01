@@ -12,10 +12,10 @@ export default class CardModal extends React.Component{
     render(){
         return (
             <div className={`modal ${this.props.isOpen ? "is-active" : ""}`}>
-                <div class="modal-background" onClick={this.props.handleClose}></div>
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">Edit Card</p>
+                <div className="modal-background" onClick={this.props.handleClose}></div>
+                <div className="modal-card">
+                    <header className="modal-card-head">
+                        <p className="modal-card-title">Edit Card</p>
                     </header>
                 
                     <Formik
@@ -27,15 +27,15 @@ export default class CardModal extends React.Component{
                         }
                     >
                     <Form>
-                        <section class="modal-card-body">
+                        <section className="modal-card-body">
                                 <label htmlFor="title">Title</label>
                                 <Field id='title' type='text' name='title'/>
                                 <label htmlFor="content">Content</label>
                                 <Field id='content' as='textarea' name='content' />
                         </section>
                         <footer>
-                            <button class="button is-success">Save changes</button>
-                            <button class="button" onClick={this.props.handleClose}>Cancel</button>
+                            <button className="button is-success">Save changes</button>
+                            <button className="button" onClick={this.props.handleClose}>Cancel</button>
                         </footer>
                         </Form>
                     </Formik>
