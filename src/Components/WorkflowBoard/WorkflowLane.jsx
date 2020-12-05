@@ -71,7 +71,7 @@ class WorkflowLane extends React.Component{
                             {...provided.draggableProps}
                             ref={provided.innerRef}
                         >
-                            <header class="card-header" {...provided.dragHandleProps}>
+                            <header className="card-header" {...provided.dragHandleProps}>
                                 <a className="delete" onClick={this.handleDeleteLane}></a>
                                 <h3>{this.props.lane.title}</h3>
                             </header>
@@ -86,7 +86,6 @@ class WorkflowLane extends React.Component{
                                         <div className="cardList"
                                             ref={provided.innerRef}
                                             {...provided.droppableProps}
-                                            isDraggingOver={snapshot.isDraggingOver}
                                         >
 
                                             {this.props.cards.map((card, index) => <WorkflowCard key={card.id} card={card} index={index} laneId={this.props.lane.id}/>)}
@@ -119,6 +118,8 @@ class WorkflowLane extends React.Component{
         )
     }
 }
+
+
 
 const mapDispatchToProps = (dispatch) => {
     return {

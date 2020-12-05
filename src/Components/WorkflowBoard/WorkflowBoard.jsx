@@ -125,7 +125,7 @@ class WorkflowBoard extends React.Component{
                                 {provided.placeholder}
                                 <button className="button is-info is-rounded is-small" onClick={this.handleAddLane}>Add Lane</button>
                             </div>
-                            )}
+                        )}
                          
                     </Droppable>
                 </DragDropContext>
@@ -139,12 +139,10 @@ class WorkflowBoard extends React.Component{
         )
     }
 }
-
 const mapStateToProps = (state) => {
-    return {
-        ...state
-    }
+    return {...state}
 }
+
 const mapDispatchToProps = (dispatch) => {
     return {
         updateState: (newState) => dispatch({ type: 'UPDATE_STATE', newState } ),

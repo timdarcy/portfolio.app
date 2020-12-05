@@ -19,9 +19,9 @@ export default class CardModal extends React.Component{
                     </header>
                 
                     <Formik
-                        initialValues={this.props.laneValues}
+                        initialValues={this.props.cardValues}
                         onSubmit={(values) => {
-                            this.props.updateLaneValues(values);
+                            this.props.updateCardValues(values);
                             this.props.handleClose();
                             }
                         }
@@ -34,7 +34,7 @@ export default class CardModal extends React.Component{
                                 <Field id='content' as='textarea' name='content' />
                         </section>
                         <footer>
-                            <button className="button is-success">Save changes</button>
+                            <button type="submit" className="button is-success">Save changes</button>
                             <button className="button" onClick={this.props.handleClose}>Cancel</button>
                         </footer>
                         </Form>

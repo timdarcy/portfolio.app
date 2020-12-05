@@ -29,7 +29,7 @@ export default class LaneModal extends React.Component{
                                 <Field id='title' type='text' name='title'/>
                         </section>
                         <footer>
-                            <button className="button is-success">Save changes</button>
+                            <button type="submit" className="button is-success">Save changes</button>
                             <button className="button" onClick={this.props.handleClose}>Cancel</button>
                         </footer>
                         </Form>

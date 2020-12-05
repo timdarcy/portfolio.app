@@ -17,7 +17,7 @@ class WorkflowCard extends React.Component{
             title: values.title,
             content: values.content
         }
-        this.props.actions.updateCard(newCard)
+        this.props.updateCard(newCard)
     }
     handleModalOpen = () => {
         this.setState({
@@ -30,7 +30,7 @@ class WorkflowCard extends React.Component{
         });
     }
     handleCardDelete = () => {
-        this.props.actions.deleteCard(this.props.card.id, this.props.laneId)
+        this.props.deleteCard(this.props.card.id, this.props.laneId)
     }
 
     render(){
@@ -45,7 +45,6 @@ class WorkflowCard extends React.Component{
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            isDragging={snapshot.isDragging}
                         >
                             <a className="delete" onClick={this.handleCardDelete}></a>
                             <h3>{this.props.card.title}</h3>
