@@ -101,6 +101,7 @@ class WorkflowBoard extends React.Component{
     }
 
     render() {
+        const testState = this.props;
         return (
             <>
                 <DragDropContext

@@ -11,6 +11,7 @@
     "formik": "^2.2.5",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
+    "lodash": "^4.17.20",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-beautiful-dnd": "^13.0.0",
@@ -26,7 +27,7 @@
     "build": "yarn build-css && react-scripts build && gulp copyBuildFiles",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-css":"sass ./src/App.scss ./src/App.css"
+    "build-css": "sass ./src/App.scss ./src/App.css"
   },
   "eslintConfig": {
     "extends": [
