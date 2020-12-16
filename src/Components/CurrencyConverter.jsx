@@ -12,10 +12,7 @@ export default class CurrencyConverter extends Component {
             amountTo: 0
         }
         this.handleSelect = this.handleSelect.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInput = this.handleInput.bind(this);
-
-        
+        this.updateAmount = this.updateAmount.bind(this);
     }
     componentDidMount(){
         //get exchange rates on load and store
@@ -31,8 +28,7 @@ export default class CurrencyConverter extends Component {
     }
 
 
-    handleSubmit(event) {
-        event.preventDefault();
+    convertCurrency() {
 
         let fromRate = this.state.rates[this.state.currencyFrom];
         let baseValue =  this.state.amountFrom / fromRate;
@@ -48,36 +44,62 @@ export default class CurrencyConverter extends Component {
     }
 
     handleSelect(event) {
-        console.log(event.target.name, event.target.value);
-        this.setState({ [event.target.name]: event.target.value });
-
+        this.setState({ [event.target.name]: event.target.value }, this.convertCurrency);
     }
 
-    handleInput(event) {
-        this.setState({ [event.target.name]: event.target.value })
+    updateAmount(event){
+        this.setState({amountFrom: event.target.value}, this.convertCurrency)
     }
+
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>Select current currency</label><br />
-                <select name="currencyFrom" value={this.state.currencyFrom} onChange={this.handleSelect}>
-                    {this.state.currencies.map((name, index) => {
-                        return <option key={index} value={name} >{name}</option>
-                    })}
-                </select><br />
 
-                <input type="number" name="amountFrom" step="any" onChange={this.handleInput}/> <br />
-                <label>Select target currency</label> <br />
-                <select name="currencyTo" value={this.state.currencyTo} onChange={this.handleSelect}>
-                    {this.state.currencies.map((name, index) => {
-                        return <option key={index} value={name} >{name}</option>
-                    })}
-                </select><br />
+                <div className="currency-form-container">
+                    
+                        <div className="field">
+                            <label>Select current currency</label>
+                        </div>
+                        <div className="field">
+                            <div className="control">
+                                <div className="select">
+                                    <select  name="currencyFrom" value={this.state.currencyFrom} onChange={this.handleSelect}>
+                                        {this.state.currencies.map((name, index) => {
+                                            return <option key={index} value={name} >{name}</option>
+                                        })}
+                                    </select>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div className="field">
+                            <label>Amount</label>
+                        </div>
+                        <div className="field">
+                            <div className="control">
+                                <input className="input" type="number" name="amountFrom" step="any" value={this.state.amountFrom} onChange={this.updateAmount}/>
+                            </div>
+                        </div>
 
-                <input type="submit" value="Convert" onChange={this.handleInput} /><br />
-                <label>Converted Amount:</label> <br />
-                <div type="number" name="amountFrom" onChange={this.handleInput}>${this.state.amountTo}</div>
-            </form >
+                        <div className="field">
+                            <label>Select target currency</label>
+                        </div>
+                        <div className="field">
+                            <div className="control">
+                                <div className="select">
+                                    <select  name="currencyTo" value={this.state.currencyTo} onChange={this.handleSelect}>
+                                        {this.state.currencies.map((name, index) => {
+                                            return <option key={index} value={name} >{name}</option>
+                                        })}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label>Converted Amount:</label> <br />
+                        <p>$ {this.state.amountTo}</p>
+                    
+                </div>
+            
         );
     }
 }

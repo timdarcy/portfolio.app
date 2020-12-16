@@ -1,4 +1,14 @@
 @import 'bulma/css/bulma.css';
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.projects {
+  max-width: 80vw;
+  margin: auto;
+}
+
 .welcome-content {
   text-align: center;
 }
@@ -20,6 +30,14 @@
 
 .workflow-lane header {
   cursor: pointer;
+}
+
+.currency-form-container {
+  padding: 25px;
+  max-width: 400px;
+  margin: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=App.css.map */

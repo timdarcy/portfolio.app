@@ -9,7 +9,7 @@ export default class Projects extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            currencyCalculator: false,
+            currencyCalculator: true,
             keyMapper: false,
             workFlowBoard: false
         }
@@ -41,7 +41,6 @@ export default class Projects extends React.Component{
         if (this.state.currencyCalculator){
             return (
                 <>
-                    <h1>CurrencyCalculator On</h1>
                     <CurrencyConverter/>
                 </>
             )
@@ -65,15 +64,12 @@ export default class Projects extends React.Component{
                 </>
                 )
         }
-        else{
-            return <h1>Nothing selected</h1>
-        }
     }
 
     render(){
         return(
         <>
-            <div className="tabs is-centered">
+            <div className="tabs is-centered projects">
                 <ul>
                     <li className={this.state.currencyCalculator ? "is-active" : ""} onClick={this.handleCurrencyCalulator}><a>Currency Calculator</a></li>
                     <li className={this.state.keyMapper ? "is-active" : ""} onClick={this.handleKeyMapper}><a>Key Mapper</a></li>
