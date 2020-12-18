@@ -54,7 +54,7 @@ export default class CurrencyConverter extends Component {
     render() {
         return (
 
-                <div className="currency-form-container">
+                <div className="small-widget-container">
                     
                         <div className="field">
                             <label>Select current currency</label>

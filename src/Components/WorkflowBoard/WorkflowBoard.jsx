@@ -103,7 +103,8 @@ class WorkflowBoard extends React.Component{
     render() {
         const testState = this.props;
         return (
-            <>
+            <div class="workflow-board-container">
+
                 <DragDropContext
                     onDragEnd={this.onDragEnd}
                 >
@@ -124,7 +125,7 @@ class WorkflowBoard extends React.Component{
                                     return <WorkflowLane key={laneId} lane={lane} cards={cards} index={index}/>
                                 })}
                                 {provided.placeholder}
-                                <button className="button is-info is-rounded is-small" onClick={this.handleAddLane}>Add Lane</button>
+                                <button className="button is-small is-light" onClick={this.handleAddLane}>Add Lane</button>
                             </div>
                         )}
                          
@@ -136,7 +137,7 @@ class WorkflowBoard extends React.Component{
                     laneValues={{ title: '' }}
                     updateLaneValues={this.addNewLane}
                 />
-            </>
+            </div>
         )
     }
 }

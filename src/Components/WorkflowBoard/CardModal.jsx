@@ -33,7 +33,7 @@ export default class CardModal extends React.Component{
                                 <label htmlFor="content">Content</label>
                                 <Field id='content' as='textarea' name='content' />
                         </section>
-                        <footer>
+                        <footer className="modal-card-foot">
                             <button type="submit" className="button is-success">Save changes</button>
                             <button className="button" onClick={this.props.handleClose}>Cancel</button>
                         </footer>

@@ -62,6 +62,7 @@ class WorkflowLane extends React.Component{
     render() {
         return (
             <>
+            
                 <Draggable
                     draggableId={this.props.lane.id}
                     index={this.props.index}
@@ -72,8 +73,14 @@ class WorkflowLane extends React.Component{
                             ref={provided.innerRef}
                         >
                             <header className="card-header" {...provided.dragHandleProps}>
-                                <a className="delete" onClick={this.handleDeleteLane}></a>
-                                <h3>{this.props.lane.title}</h3>
+                                
+                                <h3 className="card-header-title">{this.props.lane.title}</h3>
+                                <a href="#" className="card-header-icon" onClick={this.handleDeleteLane}>
+                                    <span class="icon">
+                                        <i class="delete" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                                
                             </header>
                             
                             
@@ -91,8 +98,10 @@ class WorkflowLane extends React.Component{
                                             {this.props.cards.map((card, index) => <WorkflowCard key={card.id} card={card} index={index} laneId={this.props.lane.id}/>)}
                                             {provided.placeholder}
                                         </div>
-                                        <button className="button is-info is-rounded is-small" onClick={this.handleAddCard}>Add Card</button>
-                                        <button className="button is-warning is-rounded is-small" onClick={this.handleEditLane}>Edit Lane</button>
+                                        <footer class="card-footer">
+                                            <a href="#" class="card-footer-item"onClick={this.handleAddCard}>Add Card</a>
+                                            <a href="#" class="card-footer-item" onClick={this.handleEditLane}>Edit</a>
+                                        </footer>
                                     </>
                                 )}
 

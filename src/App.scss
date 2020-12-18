@@ -22,7 +22,7 @@
 }
 
 .workflow-lane{
-  margin: 8px;
+  margin: 0px 8px 8px 8px;
   border-radius: 2px;
   width: 220px;
   display: flex;
@@ -32,11 +32,26 @@
   cursor: pointer;
 }
 
-.currency-form-container{
+.small-widget-container{
   padding: 25px;
   max-width: 400px;
   margin:auto;
   border: 1px solid #dbdbdb;
   border-radius:5px;
+  table{
+    margin:auto;
+    padding-top:10px;
+  }
+}
 
+.workflow-board-container{
+  padding: 25px;
+  max-width: 80vw;
+  margin:auto;
+  border: 1px solid #dbdbdb;
+  border-radius:5px;
+}
+
+.float-right{
+  float:right;
 }
