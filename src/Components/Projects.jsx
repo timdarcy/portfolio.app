@@ -48,7 +48,6 @@ export default class Projects extends React.Component{
         else if(this.state.keyMapper){
             return (
                 <>
-                    <h1>KeyMapper On</h1>
                     <KeyMapper/>
                 </>
             )
@@ -56,7 +55,6 @@ export default class Projects extends React.Component{
         else if(this.state.workFlowBoard){
             return (
                 <>
-                    <h1>WorkFlowBoard On</h1>
                     <Provider store={store}>
                         <WorkflowBoard/>
                     </Provider>

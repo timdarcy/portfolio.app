@@ -5,7 +5,7 @@ function App() {
   
   return (
     <>
-    <div className="app columns is-vcentered is-centered">
+    <div className="app columns is-centered">
         <div className="column">
           <div className="has-text-centered">
             <img className="mb-2" src={globe} alt="globe with rings" width="200"/>
@@ -15,7 +15,7 @@ function App() {
           <Projects/>
       </div>
     </div>
-    <footer class="footer">
+    <footer className="footer">
       <a href="https://www.vecteezy.com/free-vector/globe">Globe Vectors by Vecteezy</a>
     </footer>
     </>

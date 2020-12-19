@@ -42,6 +42,7 @@ class WorkflowLane extends React.Component{
         });
     }
     handleLaneModalClose = () => {
+
         this.setState({
             showLaneModal: false
         });
@@ -76,8 +77,8 @@ class WorkflowLane extends React.Component{
                                 
                                 <h3 className="card-header-title">{this.props.lane.title}</h3>
                                 <a href="#" className="card-header-icon" onClick={this.handleDeleteLane}>
-                                    <span class="icon">
-                                        <i class="delete" aria-hidden="true"></i>
+                                    <span className="icon">
+                                        <i className="delete" aria-hidden="true"></i>
                                     </span>
                                 </a>
                                 
@@ -98,9 +99,9 @@ class WorkflowLane extends React.Component{
                                             {this.props.cards.map((card, index) => <WorkflowCard key={card.id} card={card} index={index} laneId={this.props.lane.id}/>)}
                                             {provided.placeholder}
                                         </div>
-                                        <footer class="card-footer">
-                                            <a href="#" class="card-footer-item"onClick={this.handleAddCard}>Add Card</a>
-                                            <a href="#" class="card-footer-item" onClick={this.handleEditLane}>Edit</a>
+                                        <footer className="card-footer">
+                                            <a href="#" className="card-footer-item"onClick={this.handleAddCard}>Add Card</a>
+                                            <a href="#" className="card-footer-item" onClick={this.handleEditLane}>Edit</a>
                                         </footer>
                                     </>
                                 )}

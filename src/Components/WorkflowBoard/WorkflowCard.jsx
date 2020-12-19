@@ -41,15 +41,21 @@ class WorkflowCard extends React.Component{
                     index={this.props.index}
                 >
                     {(provided, snapshot) => (
-                        <div
+                        <div className="mt-4"
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                         >
-                            <a className="delete" onClick={this.handleCardDelete}></a>
-                            <h3>{this.props.card.title}</h3>
-                            <p>{this.props.card.content}</p>
-                            <button className="button is-warning is-rounded is-small" onClick={this.handleModalOpen}>Edit</button>
+                            <article className="message">
+                                <div className="message-header">
+                                    <p>{this.props.card.title}</p>
+                                    <button className="delete" aria-label="delete" onClick={this.handleCardDelete}></button>
+                                </div>
+                                <div className="message-body">
+                                    <p>{this.props.card.content}</p>
+                                    <button className="button is-small" onClick={this.handleModalOpen}>Edit</button>
+                                </div>
+                            </article>
                         </div>
                     )}
                 

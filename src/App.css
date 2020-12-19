@@ -2,6 +2,7 @@
 .app {
   width: 100vw;
   height: 100vh;
+  margin-top: 100px;
 }
 
 .projects {
@@ -23,7 +24,7 @@
 .workflow-lane {
   margin: 0px 8px 8px 8px;
   border-radius: 2px;
-  width: 220px;
+  width: 300px;
   display: flex;
   flex-direction: column;
 }
@@ -46,14 +47,21 @@
 
 .workflow-board-container {
   padding: 25px;
-  max-width: 80vw;
+  width: 80vw;
   margin: auto;
   border: 1px solid #dbdbdb;
   border-radius: 5px;
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  min-height: 274px;
 }
 
-.float-right {
-  float: right;
+.card {
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 5px;
 }
 
 /*# sourceMappingURL=App.css.map */

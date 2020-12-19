@@ -91,7 +91,7 @@ class WorkflowBoard extends React.Component{
             showNewLaneModal: true
         });
     }
-    handleNewLaneModalClose = () => {
+    handleNewLaneModalClose = (event) => {
         this.setState({
             showNewLaneModal: false
         });
@@ -101,9 +101,8 @@ class WorkflowBoard extends React.Component{
     }
 
     render() {
-        const testState = this.props;
         return (
-            <div class="workflow-board-container">
+            <div className="workflow-board-container">
 
                 <DragDropContext
                     onDragEnd={this.onDragEnd}
